@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>POEM2</title>
+    <link rel="stylesheet" href="{{static_url('style.css')}}">
+</head>
+<body>
+    <h1>Change Text</h1>
+    <p>
+        {% for line in change_lines %}
+            {% for word in line.split(' ') %}
+                {% if len(word)>0 and word[0] in source_map%}
+                    <span class="replace" title="{{word}}">{{choice(source_map[word[0]])}}</span>
+                {% else %}
+                    <span>{{word}}</span>
+                {% end %}
+            {% end %}
+            <br>
+        {% end %}
+    </p>
+</body>
+</html>
