@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+
+<input type="hidden" value="{{session}}" id="session">
+
+<div id="add-cart">
+    <p>此商品还有<span id="count">{{count}}</span>份</p>
+    <input type="submit" class="" id="addCart" value="添加到购物车">
+</div>
+
+<div id="remove-from-cart" style="display: none">
+    <p>已经在你的购物车中</p>
+   <input type="submit" class="" id="removeCart" value="从购物车移除">
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{static_url('cart.js')}}"></script>
+
+</body>
+</html>

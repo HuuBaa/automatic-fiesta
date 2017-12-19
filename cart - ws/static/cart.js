@@ -43,9 +43,11 @@ $(document).ready(function() {
 
 
     function requestInventory(){
-       $.getJSON('http://localhost:8000/cart/status/','',function(data,status,xhr) {
-            $('#count').html(data['inventoryCount']);
-           setTimeout(requestInventory,0);
-       })
+        var ws=new WebSocket("ws://localhost:8000/cart/status/");
+        ws.onopen=function (event) {  };
+        ws.onmessage=function (event) {
+           $("#count").html($.parseJSON(event.data)['inventoryCount']);
+        };
+        ws.onerror=function (event) {  }
     }
 });
