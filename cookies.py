@@ -7,7 +7,8 @@ import tornado.options
 
 from tornado.options import define,options
 define('port',default=8000,help='使用 --port 输入的端口号',type=int)
-
+ 
+ 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
         cookie=self.get_secure_cookie("count")
