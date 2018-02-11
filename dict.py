@@ -12,7 +12,6 @@ from tornado.options import define,options
 define('port',default=8000,help='使用 --port 输入的端口号',type=int)
 
 
-
 class Application(tornado.web.Application):
     def __init__(self):
         client = MongoClient('localhost', 27017)
